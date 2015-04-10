@@ -1,0 +1,13 @@
+[Unit]
+Description=Couchpotato container
+After=docker.service
+
+[Service]
+Restart=always
+RestartSec=10
+ExecStartPre=-/usr/bin/docker rm couchpotato_run
+ExecStart=/usr/bin/docker run --volumes-from couchpotato_data -p 5050:5050 -v /etc/localtime:/etc/localtime:ro --name couchpotato_run couchpotato
+ExecStop=/usr/bin/docker stop couchpotato_run
+
+[Install]
+WantedBy=multi-user.target
