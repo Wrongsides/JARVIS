@@ -1,5 +1,4 @@
-FROM phusion/baseimage:0.9.11
-MAINTAINER gfjardim <gfjardim@gmail.com>
+FROM phusion/baseimage:0.9.16
 ENV DEBIAN_FRONTEND noninteractive
 
 # Set correct environment variables
@@ -10,9 +9,9 @@ RUN locale-gen en_US.UTF-8
 ENV LANG       en_US.UTF-8
 ENV LC_ALL     en_US.UTF-8
 
-# Fix a Debianism of the nobody's uid being 65534
-RUN usermod -u 1000 nobody
-RUN usermod -g 100 nobody
+# Set user to Jarvis
+RUN usermod -u 1000 jarvis
+RUN usermod -g 100 jarvis
 
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
@@ -29,7 +28,7 @@ VOLUME ["/downloads"]
 EXPOSE 9091
 EXPOSE 54321
 
-# Add a standard config.json 
+# Add a standard config.json
 ADD settings.json /tmp/
 
 # Add config.sh to execute during container startup

@@ -1,12 +1,21 @@
-FROM debian:wheezy
-MAINTAINER Tim Haak <tim@haak.co.uk>
-
+FROM phusion/baseimage:0.9.16
 ENV DEBIAN_FRONTEND noninteractive
-ENV SICKRAGE_VERSION master
-ENV LANG en_US.UTF-8
-ENV LC_ALL C.UTF-8
-ENV LANGUAGE en_US.UTF-8
 
+# Set correct environment variables
+ENV HOME /root
+ENV SICKRAGE_VERSION master
+
+# Ensure UTF-8
+RUN locale-gen en_US.UTF-8
+ENV LANG       en_US.UTF-8
+ENV LC_ALL     en_US.UTF-8
+ENV LANGUAGE   en_US.UTF-8
+
+# Set user to Jarvis
+RUN usermod -u 1000 jarvis
+RUN usermod -g 100 jarvis
+
+#Install Sickrage
 RUN apt-get -q update && \
     apt-get -qy --force-yes dist-upgrade && \
     apt-get install -qy --force-yes python-cheetah wget tar ca-certificates curl unrar-free  && \
@@ -18,16 +27,13 @@ RUN apt-get -q update && \
     rm -rf /var/lib/apt/lists/* &&\
     rm -rf /tmp/*
 
-VOLUME /config
-VOLUME /data
-
-RUN useradd --no-create-home -g users --uid 1000 sickrage
+# Exports and Volumes
+VOLUME ["/config"]
+VOLUME ["/data"]
+EXPOSE 8081
 
 ADD ./start.sh /start.sh
 
 RUN chmod u+x  /start.sh
-USER sickrage
-
-EXPOSE 8081
 
 CMD ["/start.sh"]
