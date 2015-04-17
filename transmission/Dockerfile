@@ -1,26 +1,10 @@
-FROM phusion/baseimage:0.9.16
-ENV DEBIAN_FRONTEND noninteractive
-
-# Set correct environment variables
-ENV HOME /root
-
-# Ensure UTF-8
-RUN locale-gen en_US.UTF-8
-ENV LANG       en_US.UTF-8
-ENV LC_ALL     en_US.UTF-8
-
-# Set user to Jarvis
-RUN usermod -u 1000 jarvis
-RUN usermod -g 100 jarvis
-
-# Use baseimage-docker's init system
-CMD ["/sbin/my_init"]
+FROM wrongsides/baseimage
 
 # Install Dependencies
 RUN add-apt-repository "deb http://ppa.launchpad.net/transmissionbt/ppa/ubuntu trusty main"
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 365C5CA1
-RUN apt-get update -q
-RUN apt-get install -qy --force-yes transmission-daemon
+RUN apt-get update -q &&\
+    apt-get install -qy --force-yes transmission-daemon
 
 # Exports and Volumes
 VOLUME ["/config"]

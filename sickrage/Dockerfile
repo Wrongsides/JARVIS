@@ -1,19 +1,5 @@
-FROM phusion/baseimage:0.9.16
-ENV DEBIAN_FRONTEND noninteractive
-
-# Set correct environment variables
-ENV HOME /root
+FROM wrongsides/baseimage
 ENV SICKRAGE_VERSION master
-
-# Ensure UTF-8
-RUN locale-gen en_US.UTF-8
-ENV LANG       en_US.UTF-8
-ENV LC_ALL     en_US.UTF-8
-ENV LANGUAGE   en_US.UTF-8
-
-# Set user to Jarvis
-RUN usermod -u 1000 jarvis
-RUN usermod -g 100 jarvis
 
 #Install Sickrage
 RUN apt-get -q update && \
