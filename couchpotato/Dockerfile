@@ -1,17 +1,12 @@
-FROM ubuntu:trusty
+FROM wrongsides/baseimage
 
-MAINTAINER Scott Hansen <firecat4153@gmail.com>
-
-ENV DEBIAN_FRONTEND noninteractive
-
+#Install CouchPotato
 RUN apt-get -q update && apt-get install -qy git-core python
-
 RUN git clone https://github.com/RuudBurger/CouchPotatoServer.git
 
+#Add start script
 ADD ./start.sh /start.sh
-RUN chmod u+x /start.sh
 
-RUN useradd --no-create-home -g users --uid 1000 couchpotato
-USER couchpotato
+RUN chmod u+x /start.sh
 
 CMD ["/start.sh"]
