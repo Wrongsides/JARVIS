@@ -11,6 +11,4 @@ ENV LC_ALL     en_US.UTF-8
 
 RUN useradd --no-create-home -g users --uid 1000 jarvis
 
-USER jarvis
-
 CMD ["/sbin/my_init"]
