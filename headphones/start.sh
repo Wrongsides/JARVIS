@@ -1,6 +1,7 @@
 #!/bin/sh
+umask 000
 
-python headphones/Headphones.py --data_dir /data --daemon
+exec /sbin/setuser jarvis python /opt/headphones/Headphones.py --datadir /data --nolaunch
 
 # Did this because if Headphones restarts, it kills the container.
 tail -f /data/logs/Headphones.log

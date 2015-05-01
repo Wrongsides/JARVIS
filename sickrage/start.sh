@@ -1,18 +1,7 @@
 #! /bin/sh
+umask 000
 
-mkdir /config
-cd /sickrage
-if [ -f /config/config.ini ]
-then
-	rm -rf /sickrage/config.ini
-	rm -rf /sickrage/sickbeard.db
-else
-	touch /config/config.ini
-	touch /config/sickbeard.db
-#	mv -f /sickbeard/autoprocesstv/autoProcessTV.cfg /config/autoProcessTV.cfg
-fi
-ln -sf /config/config.ini /sickrage/config.ini
-ln -sf /config/sickbeard.db /sickrage/sickbeard.db
-#ln -sf /config/autoProcessTV.cfg sickbeard/autoprocesstv/autoProcessTV.cfg
+exec /sbin/setuser jarvis python /opt/sickrage/SickBeard.py --datadir=/data
 
-/usr/bin/python SickBeard.py
+# Did this because if Headphones restarts, it kills the container.
+tail -f /data/logs/SickRage.log
