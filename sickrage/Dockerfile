@@ -22,6 +22,8 @@ ADD ./start.sh /start.sh
 
 RUN chmod u+x  /start.sh
 
+RUN chown jarvis:users /sickrage
+
 USER jarvis
 
 CMD ["/start.sh"]
