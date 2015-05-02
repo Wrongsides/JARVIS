@@ -22,4 +22,6 @@ ADD ./start.sh /start.sh
 
 RUN chmod u+x  /start.sh
 
+USER jarvis
+
 CMD ["/start.sh"]
