@@ -22,7 +22,7 @@ ADD ./start.sh /start.sh
 
 RUN chmod u+x  /start.sh
 
-RUN chown jarvis:users /sickrage
+RUN chown -R jarvis:users /sickrage
 
 USER jarvis
 
