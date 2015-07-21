@@ -11,6 +11,6 @@ EXPOSE 55555
 
 USER jarvis
 
-ENTRYPOINT ["btsync"]
+ENTRYPOINT ["/usr/bin"]
 
-CMD ["--config", "/btsync/btsync.conf", "--nodaemon"]
+CMD ["btsync","--config", "/btsync/btsync.conf", "--nodaemon"]
