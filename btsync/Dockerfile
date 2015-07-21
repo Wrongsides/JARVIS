@@ -9,8 +9,8 @@ EXPOSE 8888
 # Listening port
 EXPOSE 55555
 
-ENTRYPOINT ["BitTorrent-Sync_x64"]
-
 USER jarvis
+
+ENTRYPOINT ["btsync"]
 
 CMD ["--config", "/btsync/btsync.conf", "--nodaemon"]
