@@ -1,16 +1,17 @@
 FROM wrongsides/baseimage
 
 # Download and extract the executable to /usr/bin
-ADD https://download-cdn.getsync.com/stable/linux-x64/BitTorrent-Sync_x64.tar.gz /usr/bin
-RUN cd /usr/bin && tar -xzvf BitTorrent-Sync_x64.tar.gz && rm BitTorrent-Sync_x64.tar.gz
+
+RUN mkdir /usr/bin/btsync
+
+ADD https://download-cdn.getsync.com/stable/linux-x64/BitTorrent-Sync_x64.tar.gz /usr/bin/btsync
+
+RUN cd /usr/bin/btsync && tar -xzvf BitTorrent-Sync_x64.tar.gz && rm BitTorrent-Sync_x64.tar.gz
 
 # Web GUI
 EXPOSE 8888
 # Listening port
 EXPOSE 55555
 
-USER jarvis
-
-ENTRYPOINT ["/usr/bin"]
-
-CMD ["btsync","--config", "/btsync/btsync.conf", "--nodaemon"]
+ENTRYPOINT ["btsync"]
+CMD ["--config", "/btsync/btsync.conf", "--nodaemon"]
