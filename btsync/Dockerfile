@@ -10,4 +10,7 @@ EXPOSE 8888
 EXPOSE 55555
 
 ENTRYPOINT ["BitTorrent-Sync_x64"]
+
+USER jarvis
+
 CMD ["--config", "/BitTorrent-Sync_x64/btsync.conf", "--nodaemon"]
