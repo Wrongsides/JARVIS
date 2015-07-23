@@ -1,6 +1,6 @@
 FROM wrongsides/baseimage
 
-# Download and extract the executable
+# Doownload and extract the executable
 ADD https://download-cdn.getsync.com/stable/linux-x64/BitTorrent-Sync_x64.tar.gz /btsync.tar.gz
 RUN tar -xzvf btsync.tar.gz && rm btsync.tar.gz
 
@@ -12,4 +12,5 @@ EXPOSE 55555
 
 USER jarvis
 
-CMD ["/btsync","--config", "/config/btsync.conf", "--nodaemon"]
+ENTRYPOINT ["/btsync"]
+CMD ["--config", "/config/btsync.conf", "--nodaemon"]
