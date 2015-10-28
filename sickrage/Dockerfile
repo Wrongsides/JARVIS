@@ -4,7 +4,7 @@ ENV SICKRAGE_VERSION master
 #Install Sickrage
 RUN apt-get -q update && \
     apt-get -qy --force-yes dist-upgrade && \
-    apt-get install -qy --force-yes python-cheetah wget tar ca-certificates curl unrar-free  && \
+    apt-get install -qy --force-yes OpenSSL python-cheetah wget tar ca-certificates curl unrar-free  && \
     curl -L https://github.com/SiCKRAGETV/SickRage/tarball/${SICKRAGE_VERSION} -o sickrage.tgz && \
     tar -xvf sickrage.tgz -C /  &&\
     mv /SiCKRAGETV-SickRage-* /sickrage/ &&\
