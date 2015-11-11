@@ -5,11 +5,11 @@ Just another very intelligent system, that lives on a home server.
 
 Server will run the following services:
 
-*openvpn
-*nginx
-*transmission
-*couchpotato
-*sickrage
-*headphones
-*plex
-*btsync
+* openvpn
+* nginx
+* transmission
+* couchpotato
+* sickrage
+* headphones
+* plex
+* btsync
