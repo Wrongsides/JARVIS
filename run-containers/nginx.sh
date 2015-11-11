@@ -1,0 +1,1 @@
+docker run -d -p 80:80 --name=nginx -v /mnt/share/config/nginx/sites-enabled:/etc/nginx/sites-enabled -v /mnt/share/config/nginx/certs:/etc/nginx/certs -v /mnt/share/config/nginx/logs:/var/log/nginx wrongsides/nginx
