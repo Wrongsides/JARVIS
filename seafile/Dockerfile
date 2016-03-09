@@ -12,9 +12,9 @@ RUN wget https://bintray.com/artifact/download/seafile-org/seafile/seafile-serve
 
 RUN tar -xf seafile-server_5.0.5_x86-64.tar.gz -C /jarvis/
 
-WORKDIR /jarvis/seafile-server_5.0.5
+#WORKDIR /jarvis/seafile-server-5.0.5
 
-RUN ./setup-seafile-mysql.sh
+#RUN ./setup-seafile-mysql.sh
 
 #fill out settings
 
