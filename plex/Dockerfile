@@ -1,7 +1,7 @@
 FROM wrongsides/baseimage
 
 RUN apt-get -q update && apt-get install -qy --force-yes avahi-daemon avahi-utils
-ADD https://downloads.plex.tv/plex-media-server/0.9.16.4.1911-ee6e505/plexmediaserver_0.9.16.4.1911-ee6e505_amd64.deb /plexmediaserver.deb
+ADD https://downloads.plex.tv/plex-media-server/1.0.3.2461-35f0caa/plexmediaserver_1.0.3.2461-35f0caa_amd64.deb /plexmediaserver.deb
 RUN dpkg -i /plexmediaserver.deb
 RUN rm /plexmediaserver.deb
 
