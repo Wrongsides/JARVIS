@@ -12,9 +12,11 @@ docker run \
 -p 32414:32414/udp \
 -e TZ="Europe/London" \
 -e PLEX_CLAIM="<CLAIM_TOKEN>" \
--e ADVERTISE_IP="http://192.168.0.14:32400/" \
--h PlexServer \
--v /plex/config:/config \
--v /plex/temp:/transcode \
--v /plex/data:/data \
+-e ADVERTISE_IP="http://192.168.0.100:32400/" \
+-e PLEX_UID=1000 \
+-e PLEX_GID=1000 \
+-h JARVIS \
+-v /mnt/share/config/plex:/config \
+-v /mnt/share/config/plex/temp:/transcode \
+-v /mnt/share:/data \
 plexinc/pms-docker
