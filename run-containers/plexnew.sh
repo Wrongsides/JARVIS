@@ -18,5 +18,5 @@ docker run \
 -h JARVIS \
 -v /mnt/share/config/plex:/config \
 -v /mnt/share/config/plex/temp:/transcode \
--v /mnt/share:/data \
+-v /mnt/share:/mnt/share \
 plexinc/pms-docker
