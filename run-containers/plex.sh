@@ -1,1 +1,0 @@
-docker run -h Jarvis -d -v /mnt/share/config/plex:/config -v /mnt/share:/mnt/share -p 32400:32400 -p 32443:32443 -p 1900:1900/udp -p 32463:32463 -p 5353:5353/udp -p 32410:32410/udp -p 32412:32413/udp -p 32414:32414/udp --name=plex wrongsides/plex
