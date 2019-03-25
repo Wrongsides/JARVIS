@@ -1,1 +1,0 @@
-docker run -d -h jarvis -v /mnt/share/config/transmission:/config -v /mnt/share/transmission:/downloads -v /etc/localtime:/etc/localtime:ro -p 9091:9091 -p 54322:54322 --name=transmission -e USERNAME=$USER -e PASSWORD=$PASS wrongsides/transmission

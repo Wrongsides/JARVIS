@@ -10,3 +10,7 @@ Server will run the following services:
 * couchpotato
 * sickrage
 * plex
+
+Bring up basic serivices with `docker-compose up -d` 
+
+OpenVPN requires some manual steps.
