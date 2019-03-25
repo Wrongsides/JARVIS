@@ -1,5 +1,14 @@
 version: '2'
 services:
+  openvpn:
+    container_name: openvpn
+    image: wrongsides/openvpn
+    ports:
+      - "1194:1194/udp"
+    volumes_from:
+     - container: ovpn-data
+    cap_add:
+      - NET_ADMIN
   transmission:
     container_name: transmission
     image: wrongsides/transmission
